@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiragana Practice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="setup">
+    <h1>hiragana practice</h1>
+    <div class="row-grid" id="row-grid"></div>
+    <div class="meta-btns">
+      <button id="all-btn">Select all</button>
+      <button id="none-btn">Deselect all</button>
+    </div>
+    <button id="start-btn" disabled>Start</button>
+  </div>
+
+  <div id="practice">
+    <button id="back-btn">&#8592; change rows</button>
+    <div id="session-stats">&#x2713; <span id="stat-correct">0</span> &nbsp; &#x2717; <span id="stat-wrong">0</span></div>
+    <div id="character"></div>
+    <div id="choices-grid">
+      <button class="choice-btn"></button>
+      <button class="choice-btn"></button>
+      <button class="choice-btn"></button>
+      <button class="choice-btn"></button>
+    </div>
+    <button id="next-btn" style="display:none">Next &#8594;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

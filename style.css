@@ -10,6 +10,76 @@ body {
   justify-content: center;
 }
 
+/* ── Menu ───────────────────────────────────────────── */
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 6vh, 72px);
+  padding: clamp(24px, 4vh, 60px) clamp(16px, 3vw, 40px);
+}
+
+#menu h1 {
+  font-size: clamp(17px, 2vmin, 22px);
+  letter-spacing: 2px;
+  color: #eee;
+  font-weight: normal;
+}
+
+.menu-btns {
+  display: flex;
+  gap: clamp(12px, 1.8vw, 28px);
+}
+
+.mode-btn {
+  padding: clamp(12px, 2vh, 28px) clamp(28px, 4vw, 60px);
+  font-size: clamp(13px, 1.5vmin, 17px);
+  letter-spacing: 2px;
+  border-color: #4fc3f7;
+  color: #4fc3f7;
+}
+
+.mode-btn:hover { background: #0d2030; border-color: #4fc3f7; color: #4fc3f7; }
+
+/* ── Reading sub-menu ───────────────────────────────── */
+#reading-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 6vh, 72px);
+  padding: clamp(24px, 4vh, 60px) clamp(16px, 3vw, 40px);
+}
+
+/* ── Shared section title (setup + reading-menu) ────── */
+.section-title,
+#setup-title {
+  font-size: clamp(15px, 1.8vmin, 20px);
+  letter-spacing: 2px;
+  color: #eee;
+  font-weight: normal;
+}
+
+/* ── Ghost nav buttons ──────────────────────────────── */
+#back-btn,
+#setup-back-btn,
+#reading-back-btn,
+#reading-exit-btn {
+  border: none;
+  background: none;
+  color: #444;
+  font-size: clamp(10px, 1.4vmin, 15px);
+  letter-spacing: 1px;
+  padding: 4px 0;
+}
+
+#back-btn:hover,
+#setup-back-btn:hover,
+#reading-back-btn:hover,
+#reading-exit-btn:hover { color: #aaa; border: none; }
+
+#setup-back-btn,
+#reading-back-btn { align-self: flex-start; }
+
 /* ── Setup ─────────────────────────────────────────── */
 #setup {
   display: flex;
@@ -18,13 +88,6 @@ body {
   gap: clamp(16px, 2.5vh, 36px);
   padding: clamp(24px, 4vh, 60px) clamp(16px, 3vw, 40px);
   width: min(92vw, 1100px);
-}
-
-#setup h1 {
-  font-size: clamp(17px, 2vmin, 22px);
-  letter-spacing: 2px;
-  color: #eee;
-  font-weight: normal;
 }
 
 .row-grid {
@@ -82,15 +145,17 @@ button:hover          { border-color: #555; color: #fff; }
 button:disabled       { opacity: 0.3; cursor: default; }
 button:disabled:hover { border-color: #2a2a40; color: #999; }
 
-#start-btn {
+#start-btn,
+#reveal-btn {
   padding: clamp(8px, 1.2vh, 16px) clamp(28px, 4vw, 60px);
   border-color: #4fc3f7;
   color: #4fc3f7;
 }
 
-#start-btn:hover { background: #0d2030; }
+#start-btn:hover,
+#reveal-btn:hover { background: #0d2030; }
 
-/* ── Practice ───────────────────────────────────────── */
+/* ── Character practice ─────────────────────────────── */
 #practice {
   display: none;
   flex-direction: column;
@@ -106,15 +171,7 @@ button:disabled:hover { border-color: #2a2a40; color: #999; }
   position: absolute;
   top: clamp(16px, 2.5vh, 36px);
   left: clamp(16px, 2.5vw, 36px);
-  border: none;
-  background: none;
-  color: #444;
-  font-size: clamp(10px, 1.4vmin, 15px);
-  letter-spacing: 1px;
-  padding: 4px 0;
 }
-
-#back-btn:hover { color: #aaa; border: none; }
 
 #session-stats {
   position: absolute;
@@ -154,13 +211,72 @@ button:disabled:hover { border-color: #2a2a40; color: #999; }
 .choice-btn.correct { border-color: #4caf50; color: #4caf50; background: #0a1e0a; }
 .choice-btn.wrong   { border-color: #e57373; color: #e57373; background: #1e0a0a; }
 
-#next-btn {
+#next-btn,
+#reading-next-btn {
   border-color: #4fc3f7;
   color: #4fc3f7;
 }
 
-#next-btn:hover { background: #0d2030; }
+#next-btn:hover,
+#reading-next-btn:hover { background: #0d2030; }
+
+/* ── Reading practice ───────────────────────────────── */
+#reading-practice {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3vh, 40px);
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+#reading-exit-btn {
+  position: absolute;
+  top: clamp(16px, 2.5vh, 36px);
+  left: clamp(16px, 2.5vw, 36px);
+}
+
+#reading-count {
+  position: absolute;
+  top: clamp(16px, 2.5vh, 36px);
+  right: clamp(16px, 2.5vw, 36px);
+  font-size: clamp(10px, 1.4vmin, 15px);
+  letter-spacing: 1px;
+  color: #444;
+}
+
+#reading-word {
+  font-size: clamp(36px, 7vmin, 88px);
+  line-height: 1.1;
+  color: #fff;
+  user-select: none;
+  text-align: center;
+}
+
+#reading-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1vh, 14px);
+  text-align: center;
+  min-height: clamp(52px, 8vh, 80px);
+  visibility: hidden;
+}
+
+#reading-romaji {
+  font-size: clamp(16px, 2.2vmin, 26px);
+  color: #4fc3f7;
+  letter-spacing: 1px;
+}
+
+#reading-meaning {
+  font-size: clamp(13px, 1.6vmin, 19px);
+  color: #888;
+}
 
 @media (max-width: 540px) {
-  .row-grid { grid-template-columns: 1fr; }
+  .row-grid  { grid-template-columns: 1fr; }
+  .menu-btns { flex-direction: column; align-items: center; }
 }
